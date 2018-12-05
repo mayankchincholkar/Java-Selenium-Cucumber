@@ -1,7 +1,11 @@
 package com.cucumber.steps;
 
+import com.cucumber.page.CalculatorPage;
+import com.cucumber.util.PageUtils;
+import cucumber.api.java.After;
 import cucumber.api.java.Before;
 import cucumber.api.java.en.Given;
+import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -10,23 +14,35 @@ import java.util.logging.Logger;
 
 public class E2ESteps {
     private static Logger logger = Logger.getLogger(E2ESteps.class.getName());
-    private WebDriver driver;
 
     @Before
     public void setUp() {
-        logger.info("Inside before");
-        System.setProperty("webdriver.chrome.driver","./resources/drivers/chrome-driver/chromedriver");
-        driver= new ChromeDriver();
+        CalculatorPage.initializeDriver();
     }
 
-    @Given("^user is  on homepage$")
-    public void user_is_on_homepage() throws Throwable {
-        logger.info("Inside steps");
+    @After
+    public void tearDown(){
+        CalculatorPage.closeBrowser();
+    }
+
+    @Given("^user is  on homepage and title is \"([^\"]*)\"$")
+    public void user_is_on_homepage(String title) throws Throwable {
+        CalculatorPage.verifyHomePageTitle(title);
     }
 
     @Given("^user opens url \"([^\"]*)\"$")
     public void user_opens_url(String url) throws Throwable {
-        driver.get(url);
+        CalculatorPage.openUrl(url);
+    }
+
+    @Then("^user clicks on \"([^\"]*)\"$")
+    public void user_selects_as(String locator) throws Throwable {
+        CalculatorPage.selectApplicationType(locator);
+    }
+
+    @Then("^user selects \"([^\"]*)\" as \"([^\"]*)\"$")
+    public void user_selects_as(String selector, String value) throws Throwable {
+       CalculatorPage.selectDependents(selector,value);
     }
 
 }
