@@ -2,6 +2,7 @@ package com.cucumber.steps;
 
 import com.cucumber.page.CalculatorPage;
 import com.cucumber.util.PageUtils;
+import cucumber.api.DataTable;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
 import cucumber.api.java.en.Given;
@@ -40,9 +41,9 @@ public class E2ESteps {
         CalculatorPage.selectApplicationType(locator);
     }
 
-    @Then("^user selects \"([^\"]*)\" as \"([^\"]*)\"$")
-    public void user_selects_as(String selector, String value) throws Throwable {
-       CalculatorPage.selectDependents(selector,value);
+    @Then("^user selects option as$")
+    public void user_selects_as(DataTable dropDownSelect) throws Throwable {
+       CalculatorPage.selectDependents(dropDownSelect);
     }
 
 }

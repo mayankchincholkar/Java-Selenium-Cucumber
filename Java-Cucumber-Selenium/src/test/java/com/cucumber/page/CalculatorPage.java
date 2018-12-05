@@ -2,12 +2,14 @@ package com.cucumber.page;
 
 import com.cucumber.util.PageUtils;
 import com.cucumber.util.ReadLocatorJson;
+import cucumber.api.DataTable;
 import org.json.simple.parser.ParseException;
 import org.openqa.selenium.WebDriver;
 import org.junit.Assert;
 import sun.jvm.hotspot.debugger.Page;
 
 import java.io.IOException;
+import java.util.List;
 
 public class CalculatorPage {
 
@@ -31,7 +33,8 @@ public class CalculatorPage {
         PageUtils.click(ReadLocatorJson.getLocatorValue(locator));
     }
 
-    public static void selectDependents(String locator, String value)  throws IOException, ParseException{
-        PageUtils.selectFromDropDown(ReadLocatorJson.getLocatorValue(locator),value);
+    public static void selectDependents(DataTable dropDownOptions)  throws IOException, ParseException{
+       List<List<String>> selectOption = dropDownOptions.raw();
+        PageUtils.selectFromDropDown(ReadLocatorJson.getLocatorValue(selectOption.get(0).get(0)),selectOption.get(0).get(1));
     }
 }

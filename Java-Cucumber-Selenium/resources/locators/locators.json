@@ -1,4 +1,5 @@
 {
   "Application Type Single": "[for=\"application_type_single\"][class=\"btn\"]",
-  "Number of dependents": "[title=\"Number of dependants\"]"
+  "Number of dependents": "[title=\"Number of dependants\"]",
+  "Home to live in": "[for=\"borrow_type_home\"][class=\"btn\"]"
 }
