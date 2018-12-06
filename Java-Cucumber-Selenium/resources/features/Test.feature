@@ -36,7 +36,7 @@ Feature: Login Feature
     When user clicks on how much I can "borrow button"
     Then user see error message "Based on the details you've entered, we're unable to give you an estimate of your borrowing power with this calculator. For questions, call us on 1800 100 641." as "borrowing estimate error"
 
-  @This
+
   Scenario: Check when start over button is pressed, all form fields clear
     Given user is  on homepage and title is "Home loan borrowing power calculator | ANZ"
     Then user select Application type as "Application Type Single"
