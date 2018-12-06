@@ -10,6 +10,8 @@
   "Other Commitments": "[aria-labelledby=\"q3q4\"]",
   "Credit Limit": "credit",
   "borrow button": "[class=\"btn btn--action btn--borrow__calculate\"]",
-  "result": "[class=\"borrow__result__text__amount\"]"
+  "borrowing estimate": "[class=\"borrow__result__text__amount\"]",
+  "borrowing estimate error" : "[class=\"borrow__error__text\"]",
+  "start over" : "[role=\"button\"][class=\"start-over\"]"
 
 }

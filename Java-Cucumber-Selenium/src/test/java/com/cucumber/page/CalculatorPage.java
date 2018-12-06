@@ -83,6 +83,26 @@ public class CalculatorPage {
     }
 
     public static void verifyBorrowAmount(String result, String locator) throws IOException, ParseException {
-        Assert.assertEquals(true, PageUtils.getElementText(ReadLocatorJson.getLocatorValue(locator),result));
+        Assert.assertEquals(true, PageUtils.getElementTextAfterWait(ReadLocatorJson.getLocatorValue(locator),result));
     }
+
+    public static void verifyErrorMessage(String result, String locator) throws IOException, ParseException {
+        Assert.assertEquals(true, PageUtils.getElementTextAfterWait(ReadLocatorJson.getLocatorValue(locator),result));
+    }
+
+    public static void clickStartOverButton(String locator) throws IOException, ParseException {
+        PageUtils.click(ReadLocatorJson.getLocatorValue(locator));
+    }
+
+    public static void verifyFormIsReset(DataTable fields) throws IOException, ParseException {
+        List<List<String>> inputValues = fields.raw();
+        Assert.assertEquals(inputValues.get(0).get(1),PageUtils.getSelectFieldValue(ReadLocatorJson.getLocatorValue(inputValues.get(0).get(0))));
+        Assert.assertEquals(inputValues.get(1).get(1),PageUtils.getInputFieldValueByCss(ReadLocatorJson.getLocatorValue(inputValues.get(1).get(0))));
+        Assert.assertEquals(inputValues.get(2).get(1),PageUtils.getInputFieldValueByCss(ReadLocatorJson.getLocatorValue(inputValues.get(2).get(0))));
+        Assert.assertEquals(inputValues.get(3).get(1),PageUtils.getInputFieldValueById(ReadLocatorJson.getLocatorValue(inputValues.get(3).get(0))));
+        Assert.assertEquals(inputValues.get(4).get(1),PageUtils.getInputFieldValueById(ReadLocatorJson.getLocatorValue(inputValues.get(4).get(0))));
+        Assert.assertEquals(inputValues.get(5).get(1),PageUtils.getInputFieldValueByCss(ReadLocatorJson.getLocatorValue(inputValues.get(5).get(0))));
+        Assert.assertEquals(inputValues.get(6).get(1),PageUtils.getInputFieldValueById(ReadLocatorJson.getLocatorValue(inputValues.get(6).get(0))));
+    }
+
 }

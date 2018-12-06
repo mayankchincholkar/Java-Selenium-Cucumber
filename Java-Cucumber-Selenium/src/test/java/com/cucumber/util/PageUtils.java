@@ -59,8 +59,26 @@ public class PageUtils {
         selectElement.sendKeys(value);
     }
 
-    public static boolean getElementText(String locator,String value){
-        WebDriverWait wait = new WebDriverWait(driver,20);
+    public static boolean getElementTextAfterWait(String locator,String value){
+        WebDriverWait wait = new WebDriverWait(driver,5);
         return wait.until(ExpectedConditions.textToBe(By.cssSelector(locator),value));
     }
+    public static String getElementText(String locator){
+        logger.info(driver.findElement(By.cssSelector(locator)).getText());
+        return driver.findElement(By.cssSelector(locator)).getText();
+    }
+    public static String getInputFieldValueByCss(String locator){
+        logger.info(driver.findElement(By.cssSelector(locator)).getAttribute("value"));
+        return driver.findElement(By.cssSelector(locator)).getText();
+    }
+    public static String getSelectFieldValue(String locator){
+        logger.info(new Select(driver.findElement(By.cssSelector(locator))).getFirstSelectedOption().getText());
+        return new Select(driver.findElement(By.cssSelector(locator))).getFirstSelectedOption().getText();
+    }
+    public static String getInputFieldValueById(String locator){
+        logger.info(driver.findElement(By.id(locator)).getAttribute("value"));
+        return driver.findElement(By.id(locator)).getText();
+    }
+
+
 }

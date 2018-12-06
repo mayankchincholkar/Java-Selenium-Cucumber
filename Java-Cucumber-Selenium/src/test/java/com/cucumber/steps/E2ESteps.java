@@ -100,6 +100,21 @@ public class E2ESteps {
 
     }
 
+    @Then("^user see error message \"([^\"]*)\" as \"([^\"]*)\"$")
+    public void user_see_error_message_as(String amount, String result) throws Throwable {
+        CalculatorPage.verifyErrorMessage(amount,result);
+
+    }
+
+    @When("^the user clicks on \"([^\"]*)\" button$")
+    public void the_user_clicks_on_button(String locator) throws Throwable {
+       CalculatorPage.clickStartOverButton(locator);
+    }
+
+    @Then("^following form fields are set as$")
+    public void following_form_fields_are_set_as(DataTable fields) throws Throwable {
+        CalculatorPage.verifyFormIsReset(fields);
+    }
 
 
 }
