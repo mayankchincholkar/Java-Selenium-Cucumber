@@ -3,12 +3,15 @@ package com.cucumber.util;
 import com.cucumber.steps.E2ESteps;
 import org.json.simple.parser.ParseException;
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.support.ui.*;
 
 import java.io.IOException;
+import java.util.concurrent.TimeUnit;
 import java.util.logging.Logger;
 
 public class PageUtils {
@@ -44,5 +47,20 @@ public class PageUtils {
     public static void selectFromDropDown(String locator,String value){
        WebElement selectElement = driver.findElement(By.cssSelector(locator));
        new Select(selectElement).selectByVisibleText(value);
+    }
+
+    public static void enterInputByCss(String locator,String value){
+        WebElement selectElement = driver.findElement(By.cssSelector(locator));
+        selectElement.sendKeys(value);
+    }
+
+    public static void enterInputById(String locator,String value){
+        WebElement selectElement = driver.findElement(By.id(locator));
+        selectElement.sendKeys(value);
+    }
+
+    public static boolean getElementText(String locator,String value){
+        WebDriverWait wait = new WebDriverWait(driver,20);
+        return wait.until(ExpectedConditions.textToBe(By.cssSelector(locator),value));
     }
 }

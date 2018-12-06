@@ -36,14 +36,70 @@ public class E2ESteps {
         CalculatorPage.openUrl(url);
     }
 
-    @Then("^user clicks on \"([^\"]*)\"$")
+    @Then("^user select Application type as \"([^\"]*)\"$")
     public void user_selects_as(String locator) throws Throwable {
         CalculatorPage.selectApplicationType(locator);
     }
 
-    @Then("^user selects option as$")
+    @Then("^user selects dependents option as$")
     public void user_selects_as(DataTable dropDownSelect) throws Throwable {
        CalculatorPage.selectDependents(dropDownSelect);
     }
+
+    @Then("^user clicks on buy type as \"([^\"]*)\"$")
+    public void user_clicks_on_buy_type_as(String locator) throws Throwable {
+        CalculatorPage.selectBuyType(locator);
+    }
+
+    @Then("^user enters income as$")
+    public void user_enters_income_as(DataTable income) throws Throwable {
+        CalculatorPage.enterIncome(income);
+    }
+
+    @Then("^user enter other income as$")
+    public void user_enter_other_income_as(DataTable otherIncome) throws Throwable {
+        CalculatorPage.enterOtherIncome(otherIncome);
+    }
+
+    @Then("^user enters living expense as$")
+    public void user_enters_living_expense_as(DataTable expense) throws Throwable {
+        CalculatorPage.enterExpense(expense);
+    }
+
+    @Then("^user enters current home loan repayments as$")
+    public void user_enters_current_home_loan_repayments_as(DataTable homeLoan) throws Throwable {
+        CalculatorPage.enterHomeLoan(homeLoan);
+
+    }
+
+    @Then("^user enters loan repayments as$")
+    public void user_enters_loan_repayments_as(DataTable otherLoan) throws Throwable {
+        CalculatorPage.enterOtherLoan(otherLoan);
+
+    }
+
+    @Then("^user enters other commitments as$")
+    public void user_enters_other_commitments_as(DataTable otherCommitment) throws Throwable {
+        CalculatorPage.enterOtherCommitment(otherCommitment);
+    }
+
+    @Then("^user enters total credit cards limit as$")
+    public void user_enters_total_credit_cards_limit_as(DataTable creditLimit) throws Throwable {
+        CalculatorPage.enterCreditLimit(creditLimit);
+
+    }
+
+    @When("^user clicks on how much I can \"([^\"]*)\"$")
+    public void user_clicks_on_how_much_I_can(String borrowButton) throws Throwable {
+        CalculatorPage.clickBorrowButton(borrowButton);
+    }
+
+    @Then("^user see \"([^\"]*)\" as \"([^\"]*)\"$")
+    public void user_see_as(String amount, String result) throws Throwable {
+        CalculatorPage.verifyBorrowAmount(amount,result);
+
+    }
+
+
 
 }

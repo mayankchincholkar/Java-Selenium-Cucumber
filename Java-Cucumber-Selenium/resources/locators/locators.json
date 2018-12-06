@@ -1,5 +1,15 @@
 {
   "Application Type Single": "[for=\"application_type_single\"][class=\"btn\"]",
   "Number of dependents": "[title=\"Number of dependants\"]",
-  "Home to live in": "[for=\"borrow_type_home\"][class=\"btn\"]"
+  "Home to live in": "[for=\"borrow_type_home\"][class=\"btn\"]",
+  "Income": "[aria-labelledby=\"q2q1\"]",
+  "Other Income": "[aria-labelledby=\"q2q2\"]",
+  "Living Expense": "expenses",
+  "Home Repayments": "homeloans",
+  "Loan Repayments": "otherloans",
+  "Other Commitments": "[aria-labelledby=\"q3q4\"]",
+  "Credit Limit": "credit",
+  "borrow button": "[class=\"btn btn--action btn--borrow__calculate\"]",
+  "result": "[class=\"borrow__result__text__amount\"]"
+
 }
